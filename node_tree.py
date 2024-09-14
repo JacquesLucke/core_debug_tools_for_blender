@@ -3,20 +3,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
-from pathlib import Path
-
-viewer_path = Path(__file__).parent / Path("viewer/dist/index.html")
-
-
-def show_dot_graph(dot_str):
-    import webbrowser
-    import urllib.parse
-    import sys
-    import subprocess
-
-    dot_str_encoded = urllib.parse.quote(dot_str)
-    url = f"file://{viewer_path}#{dot_str_encoded}"
-    webbrowser.open(url)
+from . import dot_viewer
 
 
 class ShowLazyFunctionGraphOperator(bpy.types.Operator):
@@ -38,7 +25,7 @@ class ShowLazyFunctionGraphOperator(bpy.types.Operator):
         dot_str = eval_tree.debug_lazy_function_graph()
 
         if dot_str:
-            show_dot_graph(dot_str)
+            dot_viewer.show(dot_str)
         return {"FINISHED"}
 
 
@@ -67,7 +54,7 @@ class ShowZoneBodyLazyFunctionGraphOperator(bpy.types.Operator):
 
         dot_str = eval_node.debug_zone_body_lazy_function_graph()
         if dot_str:
-            show_dot_graph(dot_str)
+            dot_viewer.show(dot_str)
         return {"FINISHED"}
 
 
