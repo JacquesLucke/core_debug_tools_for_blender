@@ -5,9 +5,9 @@ def show(dot_graph: str):
     from pathlib import Path
     import base64
 
-    current_dir = Path(__file__).parent
-    viewer_path = current_dir / Path("viewer/dist/dot_viewer.html").absolute()
-    js_path = current_dir / Path("viewer/dist/dot_viewer.js").absolute()
+    current_dir = Path(__file__).parent.absolute()
+    viewer_path = current_dir / Path("viewer/dist/dot_viewer.html")
+    js_path = current_dir / Path("viewer/dist/dot_viewer.js")
 
     with open(viewer_path) as f:
         html = f.read()
@@ -18,7 +18,9 @@ def show(dot_graph: str):
         "injected_dot_graph = null", f"injected_dot_graph = atob(`{str_encoded}`)"
     )
 
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".html") as tmp_html_file:
+    with tempfile.NamedTemporaryFile(
+        delete=False, suffix=".html", prefix="dot_viewer_"
+    ) as tmp_html_file:
         tmp_html_file.write(html.encode("utf-8"))
         html_file_path = tmp_html_file.name
 

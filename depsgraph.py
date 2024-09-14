@@ -8,7 +8,7 @@ class ShowDepsgraphOperator(bpy.types.Operator):
 
     def execute(self, context):
         deg = context.view_layer.depsgraph
-        dot_viewer.show(deg.debug_graph())
+        dot_viewer.show(deg.debug_relations_graphviz())
         return {"FINISHED"}
 
 
