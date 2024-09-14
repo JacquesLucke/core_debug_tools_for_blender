@@ -15,11 +15,16 @@ export function init(injected_dot_graph: string | null) {
   const svg_div = document.getElementById("svg-div");
   const info_div = document.getElementById("info");
 
+  window.addEventListener("unhandledrejection", () => {
+    info_div.innerText = "Error generating graph, maybe it's too large.";
+  });
+
   if (dot_str) {
-    d3.graphviz(svg_div, {
+    const graphviz = d3.graphviz(svg_div, {
       useWorker: false,
       zoomScaleExtent: [0.001, 100],
-    }).renderDot(dot_str, () => {
+    });
+    graphviz.renderDot(dot_str, () => {
       info_div.style.display = "none";
     });
   } else {
@@ -27,5 +32,3 @@ export function init(injected_dot_graph: string | null) {
       "No dot graph provided. It can be provided by injecting it into the HTML file or by passing it as part of the url.";
   }
 }
-
-export function show_dot_str(dot_str: string) {}
