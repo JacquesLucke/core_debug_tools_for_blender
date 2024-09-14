@@ -28,7 +28,7 @@ export function init(injected_dot_graph: string | null) {
       info_div.style.display = "none";
     });
   } else {
-    svg_div.innerText =
+    info_div.innerHTML =
       "No dot graph provided. It can be provided by injecting it into the HTML file or by passing it as part of the url.";
   }
 }

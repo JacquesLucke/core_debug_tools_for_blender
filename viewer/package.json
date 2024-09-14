@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "build": "npx webpack"
+  },
   "author": "Jacques Lucke",
   "license": "GPL-2.0-or-later",
   "devDependencies": {

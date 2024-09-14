@@ -1,7 +1,7 @@
 schema_version = "1.0.0"
 
 id = "core_debug_tools"
-version = "1.0.0"
+version = "0.1.0"
 name = "Core Debug Tools"
 tagline = "Debugging utilities for core Blender developers"
 maintainer = "Jacques Lucke"
@@ -19,4 +19,10 @@ copyright = ["2024 Jacques Lucke"]
 files = "Build temporary html files to view in the browser"
 
 [build]
-paths_exclude_pattern = ["__pycache__/", "/.git/", "/*.zip"]
+paths_exclude_pattern = [
+    "__pycache__/",
+    "/.git/",
+    "/*.zip",
+    "viewer/node_modules/",
+    ".vscode",
+]
