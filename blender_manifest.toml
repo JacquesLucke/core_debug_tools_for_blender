@@ -9,7 +9,7 @@ type = "add-on"
 
 tags = ["Development"]
 
-blender_version_min = "4.3.22"
+blender_version_min = "4.3.23"
 
 license = ["SPDX:GPL-2.0-or-later"]
 
