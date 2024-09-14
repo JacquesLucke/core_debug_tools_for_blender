@@ -3,14 +3,19 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 
 import bpy
+from pathlib import Path
+
+viewer_path = Path(__file__).parent / Path("viewer/dist/index.html")
 
 
 def show_dot_graph(dot_str):
     import webbrowser
     import urllib.parse
+    import sys
+    import subprocess
 
     dot_str_encoded = urllib.parse.quote(dot_str)
-    url = f"https://dreampuf.github.io/GraphvizOnline/?presentation#{dot_str_encoded}"
+    url = f"file://{viewer_path}#{dot_str_encoded}"
     webbrowser.open(url)
 
 
