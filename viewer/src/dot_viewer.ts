@@ -12,15 +12,18 @@ export function init(injected_dot_graph: string | null) {
     dot_str = decodeURIComponent(location.hash.substring(1));
   }
 
-  const svg_container = document.getElementById("svg-div");
+  const svg_div = document.getElementById("svg-div");
+  const info_div = document.getElementById("info");
 
   if (dot_str) {
-    d3.graphviz(svg_container, {
+    d3.graphviz(svg_div, {
       useWorker: false,
       zoomScaleExtent: [0.001, 100],
-    }).renderDot(dot_str);
+    }).renderDot(dot_str, () => {
+      info_div.style.display = "none";
+    });
   } else {
-    svg_container.innerText =
+    svg_div.innerText =
       "No dot graph provided. It can be provided by injecting it into the HTML file or by passing it as part of the url.";
   }
 }
