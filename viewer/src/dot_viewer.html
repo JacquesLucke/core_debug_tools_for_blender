@@ -21,11 +21,9 @@
   <body>
     <div id="svg-div"></div>
 
-    <!-- Webpack will inject the script here -->
     <script>
-      <% htmlWebpackPlugin.files.js.forEach(function(js) { %>
-        <%= compilation.assets[js].source() %>
-      <% }) %>
+      const injected_dot_graph = null;
+      dot_viewer.init(injected_dot_graph);
     </script>
   </body>
 </html>

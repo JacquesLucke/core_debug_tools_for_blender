@@ -3,8 +3,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 
 from . import node_tree
+from . import depsgraph
 
-modules = (node_tree,)
+modules = (node_tree, depsgraph)
 
 
 def register():

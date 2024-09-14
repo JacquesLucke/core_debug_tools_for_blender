@@ -4,20 +4,23 @@
 
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { library } = require("webpack");
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: "./src/dot_viewer.ts",
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/dot_viewer.html",
-      inject: false,
       filename: "dot_viewer.html",
+      inject: "head",
+      scriptLoading: "blocking",
     }),
   ],
   output: {
-    filename: "main.js",
+    filename: "dot_viewer.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
+    library: "dot_viewer",
   },
   mode: "production",
   module: {
