@@ -1,0 +1,22 @@
+schema_version = "1.0.0"
+
+id = "core_debug_tools"
+version = "1.0.0"
+name = "Core Debug Tools"
+tagline = "Debugging utilities for core Blender developers"
+maintainer = "Jacques Lucke"
+type = "add-on"
+
+tags = ["Development"]
+
+blender_version_min = "4.3.0"
+
+license = ["SPDX:GPL-2.0-or-later"]
+
+copyright = ["2024 Jacques Lucke"]
+
+[permissions]
+network = "Open dot graphs for visualization on website"
+
+[build]
+paths_exclude_pattern = ["__pycache__/", "/.git/", "/*.zip"]
