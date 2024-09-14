@@ -16,7 +16,7 @@ license = ["SPDX:GPL-2.0-or-later"]
 copyright = ["2024 Jacques Lucke"]
 
 [permissions]
-network = "Open dot graphs for visualization on website"
+files = "Build temporary html files to view in the browser"
 
 [build]
 paths_exclude_pattern = ["__pycache__/", "/.git/", "/*.zip"]
